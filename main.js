@@ -40,7 +40,7 @@ btnIpNumber.onclick = function() {
     showArrNum.innerHTML = `[ ${arrNum}]`; 
     showConditionIpSwap.innerHTML = ` Nhập vị trí cần đổi chỗ (1 ~ ${arrNum.length})`
     newSwapArrNum = [...arrNum] 
-    
+    $('.ipNum').value = '';
 }
 
 // Tổng số dương
@@ -108,12 +108,14 @@ btnLastEvenNum.onclick = function() {
     lastEvenNum != 0 ? showLastEvenNum.innerHTML = ` Số chẵn cuối cùng trong mảng là: ${lastEvenNum}` : showLastEvenNum.innerHTML = 'Mảng của bạn không có số chẵn'
 }
 // Đổi 2 vị trí trong mảng
-
+console.log(arrNum.length);
 btnSwapNum.onclick = function() {       
     const swapNum1 = $('.swapNum1').value;
     const swapNum2 = $('.swapNum2').value;
     let tmpNum; 
-    if (swapNum1 < 1 || swapNum1 > arrNum.length || swapNum2 < 1 || swapNum2 > arrNum.length || isNaN(swapNum1) || isNaN(swapNum2) ) {
+    if (arrNum.length === 0) { 
+        alert('Vui lòng nhập mảng')
+    } else if (swapNum1 < 1 || swapNum1 > arrNum.length || swapNum2 < 1 || swapNum2 > arrNum.length || isNaN(swapNum1) || isNaN(swapNum2) ) {
         alert('Vui lòng nhập lại vị trí cần đổi chỗ')
     } else {
         
@@ -171,7 +173,7 @@ btnIpFloatNumber.onclick = function() {
     showArrNum.innerHTML = `[ ${arrNum}]`;
     showConditionIpSwap.innerHTML = ` Nhập vị trí cần đổi chỗ (1 ~ ${arrNum.length})`
     newSwapArrNum = [...arrNum]
-    
+    $('#ipFloatNum').value = '';
 }
 
 btnCountIntergerNum.onclick = function() {
