@@ -147,22 +147,15 @@ btnSortArrNum.onclick = function() {
 
 btnFirstPrimeNum.onclick = function() {
     let firstPrimeNum = 0;
-    for (let i = 0; i < arrNum.length && firstPrimeNum == 0; i++) {
-        if (arrNum[i] < 2) {
-            break;
-        }else if (arrNum[i] == 2) {
+    for (let i = 0; i < arrNum.length && firstPrimeNum == 0; i++) {      
+        if (arrNum[i] == 2) {
             firstPrimeNum = 2;            
-        }else {
+        }else if (arrNum[i] > 2) {            
             for (let j = 2; j < i; j++) {
-                if (arrNum[i] % j == 0) {
-                    break;
-                }else {
-                    firstPrimeNum = arrNum[i];
-                }
+                firstPrimeNum = (arrNum[i] % j == 0) ? 0 : arrNum[i];        
             }
         }        
     }
-    
     firstPrimeNum === 0 ? showFirstPrimeNum.innerHTML = 'Mảng của bạn không có số nguyên tố' : showFirstPrimeNum.innerHTML = ` Số nguyên tố đầu tiên của mảng là: ${firstPrimeNum}`
 }
 
@@ -213,3 +206,9 @@ btnComparePosAndNegNum.onclick = function() {
 
     
 }
+
+
+
+
+
+
