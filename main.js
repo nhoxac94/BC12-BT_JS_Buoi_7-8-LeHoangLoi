@@ -108,7 +108,7 @@ btnLastEvenNum.onclick = function() {
     lastEvenNum != 0 ? showLastEvenNum.innerHTML = ` Số chẵn cuối cùng trong mảng là: ${lastEvenNum}` : showLastEvenNum.innerHTML = 'Mảng của bạn không có số chẵn'
 }
 // Đổi 2 vị trí trong mảng
-console.log(arrNum.length);
+
 btnSwapNum.onclick = function() {       
     const swapNum1 = $('.swapNum1').value;
     const swapNum2 = $('.swapNum2').value;
@@ -147,19 +147,24 @@ btnSortArrNum.onclick = function() {
 
 btnFirstPrimeNum.onclick = function() {
     let firstPrimeNum = 0;
-    let newPosArrNum = arrNum.filter(num => {
-        return num > 1
-    })    
-    for (let i = 0; i < newPosArrNum.length; i++) {
-        if (newPosArrNum[i] % i == 0) {
+    for (let i = 0; i < arrNum.length && firstPrimeNum == 0; i++) {
+        if (arrNum[i] < 2) {
             break;
+        }else if (arrNum[i] == 2) {
+            firstPrimeNum = 2;            
         }else {
-            firstPrimeNum =  newPosArrNum[i];
+            for (let j = 2; j < i; j++) {
+                if (arrNum[i] % j == 0) {
                     break;
+                }else {
+                    firstPrimeNum = arrNum[i];
+                }
             }
+        }        
     }
+    
     firstPrimeNum === 0 ? showFirstPrimeNum.innerHTML = 'Mảng của bạn không có số nguyên tố' : showFirstPrimeNum.innerHTML = ` Số nguyên tố đầu tiên của mảng là: ${firstPrimeNum}`
- }
+}
 
 //  Nhập thêm phần từ vào mảng có số thực và tìm xem có bao nhiêu số nguyên
 
